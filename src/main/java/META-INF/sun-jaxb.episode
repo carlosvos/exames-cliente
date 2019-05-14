@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.11 
+Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+Gerado em: 2019.05.14 às 12:33:48 AM BRT 
+
+  -->
+  <bindings xmlns:tns="https://www.integracaoexames.com.br/xml/exame" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="br.com.integracao.examescliente.soap"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:BuscaExameRequisicao">
+      <class ref="br.com.integracao.examescliente.soap.BuscaExameRequisicao"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:ExameResposta">
+      <class ref="br.com.integracao.examescliente.soap.ExameResposta"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:Exame">
+      <class ref="br.com.integracao.examescliente.soap.Exame"/>
+    </bindings>
+  </bindings>
+</bindings>
