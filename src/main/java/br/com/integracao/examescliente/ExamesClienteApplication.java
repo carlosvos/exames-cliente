@@ -21,27 +21,32 @@ public class ExamesClienteApplication {
 	@Bean
 	public CommandLineRunner lookup(SOAPConnector soapConnector) {
 		return args -> {
-		    try (Scanner scanner = new Scanner(System.in)){;
-			    System.out.print("Digite o id do exame: ");
-			    long id = scanner.nextLong();
-			    
-				BuscaExameRequisicao request = new BuscaExameRequisicao();
-				request.setId(id);
-	
-				ExameResposta response =(ExameResposta) soapConnector.callWebService("http://localhost:8080/service/integracao-exames", request);
-				Exame exame = response.getExame();
-				
-				if(exame != null) {
-					System.out.println("Exame encontrado: ========= : ");
-					System.out.println("Id : "+response.getExame().getId());
-					System.out.println("Código : "+response.getExame().getCodigo());
-					System.out.println("Nome : "+response.getExame().getNome());
-					System.out.println("Descrição : "+response.getExame().getDescricao());
-				}else {
-					System.out.println("Nenhhum exame encontrado! ");
+			try (Scanner scanner = new Scanner(System.in)){
+				while (true) {
+					System.out.print("Digite o id do exame: ");
+					long id = scanner.nextLong();
+
+					BuscaExameRequisicao request = new BuscaExameRequisicao();
+					request.setId(id);
+
+					ExameResposta response =(ExameResposta) soapConnector.callWebService("http://localhost:8080/service/integracao-exames", request);
+					Exame exame = response.getExame();
+
+					if(exame != null) {
+						System.out.println("Exame encontrado: ========= : ");
+						System.out.println("Id : "+response.getExame().getId());
+						System.out.println("Código : "+response.getExame().getCodigo());
+						System.out.println("Nome : "+response.getExame().getNome());
+						System.out.println("Descrição : "+response.getExame().getDescricao());
+						System.out.println(" ==========================  ");
+					}else {
+						System.out.println(" ==========================  ");
+						System.out.println(" Nenhhum exame encontrado! ");
+						System.out.println(" ==========================  ");
+					}
 				}
-		    }
-			
+			}
+
 		};
 	}
 
